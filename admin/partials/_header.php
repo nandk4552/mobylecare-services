@@ -34,7 +34,7 @@ session_start();
     <!-- navbar section starts -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">mobylcare</a>
+            <a class="navbar-brand" href="<?php echo SITEURL;?>admin">mobylcare</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

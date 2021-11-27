@@ -20,8 +20,8 @@
   <!-- font awesome cdn link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -49,16 +49,20 @@
             <a class="nav-link" href="/mobylcare">home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mobylcare/services.php">services</a>
+            <a class="nav-link" href="<?php echo SITEURL;?>categories.php">Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mobylcare/repair.php">repair</a>
+            <a class="nav-link" href="<?php echo SITEURL;?>repair.php">repair</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mobylcare/store.php">Our Stores</a>
+            <a class="nav-link" href="<?php echo SITEURL;?>services.php">services</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo SITEURL;?>store.php">Our Stores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/mobylcare/contact.php">contact</a>
+            <a class="nav-link" href="<?php echo SITEURL;?>contact.php">contact</a>
           </li>
         </ul>
         <?php
@@ -80,7 +84,7 @@
         </form>';
         }else {
         echo '
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 d-flex">
           <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search" />
           <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
                 outline: none !important;

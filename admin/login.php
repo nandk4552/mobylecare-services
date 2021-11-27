@@ -12,7 +12,7 @@ include('partials/_dbconnect.php');
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>foodie | Admin Login</title>
+    <title> mobylcare | Admin Login</title>
 </head>
 
 <body class="text-center">
@@ -33,9 +33,9 @@ include('partials/_dbconnect.php');
 
 
 
-        <form action="/rcw/admin/login.php" method="post">
-            <h1 class="display-4 text-dark font-weight-700">foodie</h1>
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <form class="form-floating" action="/mobylcare/admin/login.php" method="post">
+            <h1 class="display-4 text-dark font-weight-700">mobylcare</h1>
+            <h1 class="h3 mb-3 fw-normal">Please sign into Admin </h1>
 
             <div class="form-floating my-3">
                 <input type="text" name="username" class="form-control" style="width: 300px;" id="username" placeholder="username">
@@ -94,7 +94,8 @@ include('partials/_dbconnect.php');
 
 
             // Redirecting to  Home Page or DashBoard page
-            header("location: " . SITEURL . 'admin/');
+            header('location: ' . SITEURL . 'admin/');
+            die();
         } else {
             // User Not Available and Login Faile Message
 
@@ -108,6 +109,7 @@ include('partials/_dbconnect.php');
 
             // Redirecting to  Home Page or DashBoard page
             header("location: " . SITEURL .  'admin/login.php');
+            die();
         }
     }
     ?>

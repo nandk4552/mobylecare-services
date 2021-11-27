@@ -9,7 +9,7 @@ if (isset($_SESSION['login'])) {
 }
 ?>
 
-<div class="container mt-5 py-5">
+<div class="container mt-5">
     <h1 class="text-center">Dashboard</h1>
     <div id="main-content" class="py-3">
         <div id="wrapper">
@@ -41,7 +41,7 @@ if (isset($_SESSION['login'])) {
                 ?>
                 <h1><?php echo $count2; ?></h1>
                 <br>
-                Foods
+                Repairs
             </div>
 
             <div id="col-4" class="text-center">

@@ -46,12 +46,12 @@ include('partials/_header.php');
                     </div>
                     ';
 
-                    header("Location: " . SITEURL . "admin/manage-category.php");
+                    header('Location:' . SITEURL . 'admin/manage-category.php');
                     die();
                 }
             } else {
                 // redirect to manage category page
-                header("Location: " . SITEURL . "admin/manage-category.php");
+                header('Location:' . SITEURL . 'admin/manage-category.php');
                 die();
             }
 
@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
             $ext = end(explode('.', $image_name));
 
             // Rename the image
-            $image_name = "Food-Category-" . rand(0000, 9999) . '.' . $ext;
+            $image_name = "brand-Category-" . rand(0000, 9999) . '.' . $ext;
 
 
             $source_path = $_FILES['image']['tmp_name'];
@@ -192,8 +192,8 @@ if (isset($_POST['submit'])) {
                     </div>
                     ';
                 // Redirect the user to manage category page
-                header("Location: " . SITEURL . "admin/manage-category.php");
-                exit;
+                header('location:' . SITEURL . 'admin/manage-category.php');
+                die();
             }
 
             //B. Remove the Current Image If available
@@ -212,7 +212,7 @@ if (isset($_POST['submit'])) {
                         <strong>Error!</strong> Failed to remove the current Image.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>   ';
-                    header("location: " . SITEURL .  "admin/manage-category.php");
+                    header('location:' . SITEURL .  'admin/manage-category.php');
                     die();
                 }
             }
@@ -244,7 +244,7 @@ if (isset($_POST['submit'])) {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         ';
-        header("Location: " . SITEURL . "admin/manage-category.php");
+        header('location:' . SITEURL . 'admin/manage-category.php');
         exit;
     } else {
         // Failed to Update Category
@@ -254,8 +254,8 @@ if (isset($_POST['submit'])) {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         ';
-        header("Location: " . SITEURL . "admin/manage-category.php");
-        exit;
+        header('location:' . SITEURL . 'admin/manage-category.php');
+        die();
     }
 }
 ?>

@@ -41,7 +41,7 @@
               and conditions
             </label>
           </div>
-          <button class="btn btn-lg btn-light btn-block" style="background-color: #a517ba; color: #fff" type="submit">
+          <button class="btn btn-lg btn-light btn-block" style="background-color: #a517ba; color: #fff" name="signup" type="submit">
             Sign Up
           </button>
         </form>

@@ -20,7 +20,8 @@
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-signin" action="/mobylcare/partials/_handleLogin.php" method="post">
+          <!-- /mobylcare/partials/_handleLogin.php -->
+          <form class="form-signin" action="" method="post">
             <a class="navbar-brand my-2">
               <img src="images/logo-bg.png" alt="" />
             </a>
@@ -29,19 +30,16 @@
             <input type="email" style="text-transform: none" id="loginEmail" name="loginEmail" class="form-control my-2" placeholder="Email address" required="" autofocus="" />
             <label for="loginPass" class="sr-only my-2">Password</label>
             <input type="password" style="text-transform: none" id="loginPass" name="loginPass" class="form-control my-2" placeholder="Password" required="" />
-            <!-- <div class="checkbox my-3" style="text-align: left">
-              <label>
-                <input type="checkbox" value="remember-me" /> Remember me
-              </label>
-            </div> -->
             <div class="d-flex align-items-center justify-content-between my-4">
               <div class="g-signin2" data-onsuccess="onSignIn"></div>
               <a href="#" class="btn btn-primary" onclick="signOut();">Sign out</a>
             </div>
-            <button class="btn btn-lg btn-warning btn-block" style="background-color: #a517ba; color: #fff" type="submit">
+            <button class="btn btn-lg btn-warning btn-block" style="background-color: #a517ba; color: #fff" type="submit" name="submit">
               Sign in
             </button>
           </form>
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary y-btn" style="background: #ffbf00; color: #222" data-dismiss="modal">

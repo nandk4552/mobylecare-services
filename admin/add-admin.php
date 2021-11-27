@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 
 
 
-        <form action="/rcw/admin/add-admin.php" method="post">
+        <form action="/mobylcare/admin/add-admin.php" method="post">
             <div class="mb-3">
                 <label for="full_name" class="form-label">Full Name</label>
                 <input type="text" class="form-control" name="full_name" id="full_name" aria-describedby="emailHelp" required>

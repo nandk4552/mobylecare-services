@@ -3,7 +3,6 @@
 // Start Session
 session_start();
 
-
 // Script to connect to the database
 define('SITEURL', 'http://localhost/mobylcare/');
 

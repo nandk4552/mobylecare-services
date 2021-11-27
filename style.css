@@ -29,6 +29,25 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+#location span {
+  text-transform: none;
+  color: var(--bg-1);
+}
+
+#location span small {
+  color: var(--color);
+}
+
+#logo-b {
+  font-family: "Ubuntu", sans-serif;
+
+}
+
+.card-box {
+  outline: none !important;
+  border: none !important;
+
+}
 
 /* utilities */
 .title {
