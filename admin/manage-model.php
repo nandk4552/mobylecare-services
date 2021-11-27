@@ -26,12 +26,12 @@ if (isset($_SESSION['update'])) {
 
 
 <div class="container mt-5 py-5">
-    <h1 class="text-center">Manage Food</h1>
+    <h1 class="text-center">Manage model</h1>
     <div id="main-content" class="py-3 shadow-lg ">
         <div id="wrapper">
 
             <!-- add category section starts -->
-            <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn btn-primary btn-sm my-3">Add Food</a>
+            <a href="<?php echo SITEURL; ?>admin/add-model.php" class="btn btn-primary btn-sm my-3">Add model</a>
 
             <table class="tbl-full my-3 table" id="myTable">
                 <thead>
@@ -48,20 +48,20 @@ if (isset($_SESSION['update'])) {
                 </thead>
 
                 <?php
-                // create sql query to get all the food
-                $sql = "SELECT * FROM tbl_food";
+                // create sql query to get all the model
+                $sql = "SELECT * FROM tbl_model";
 
                 // Execute the query
                 $result = mysqli_query($conn, $sql);
 
-                // Count the rows to check whether we have food or not
+                // Count the rows to check whether we have model or not
                 $count = mysqli_num_rows($result);
                 // Create serial number variable
                 $sno = 1;
 
                 if ($count > 0) {
-                    //  We have food in Database
-                    // Get the Foods from Database and Display
+                    //  We have model in Database
+                    // Get the model from Database and Display
                     while ($row = mysqli_fetch_assoc($result)) {
                         // get the values from Individual columns
                         $id = $row['id'];
@@ -85,7 +85,7 @@ if (isset($_SESSION['update'])) {
                                     } else {
                                         // we have Image,Display Image
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Image can't Preview right now..." width="100px">
+                                    <img src="<?php echo SITEURL; ?>images/model/<?php echo $image_name; ?>" alt="Image can't Preview right now..." width="100px">
 
                                     <?php
 
@@ -96,8 +96,8 @@ if (isset($_SESSION['update'])) {
                                 <td><?php echo $featured; ?></td>
                                 <td><?php echo $active; ?></td>
                                 <td>
-                                    <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn btn-success btn-sm">Update Food</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn btn-danger btn-sm">Delete Food</a>
+                                    <a href="<?php echo SITEURL; ?>admin/update-model.php?id=<?php echo $id; ?>" class="btn btn-success btn-sm">Update model</a>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-model.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn btn-danger btn-sm">Delete model</a>
                                 </td>
 
                             </tr>
@@ -107,9 +107,9 @@ if (isset($_SESSION['update'])) {
                 <?php
                     }
                 } else {
-                    // Food not Added in Database
+                    // model not Added in Database
                     echo "<tr>
-                            <td colspan='7' class='text-danger'>Food not Added Yet.</td>
+                            <td colspan='7' class='text-danger'>model not Added Yet.</td>
                           </tr>";
                 }
 

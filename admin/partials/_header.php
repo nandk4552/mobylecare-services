@@ -50,7 +50,7 @@ session_start();
                         <a class="nav-link" href="manage-category.php">Category</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="manage-food.php">Repair</a>
+                        <a class="nav-link" href="manage-model.php">Model</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="manage-order.php">Order</a>

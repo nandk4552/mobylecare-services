@@ -32,7 +32,7 @@ if (isset($_SESSION['login'])) {
             <div id="col-4" class="text-center">
                 <?php
                 // sql query
-                $sql2 = "SELECT * FROM tbl_food";
+                $sql2 = "SELECT * FROM tbl_model";
 
                 // execute the query
                 $result2 = mysqli_query($conn, $sql2);

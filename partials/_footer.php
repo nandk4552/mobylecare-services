@@ -65,7 +65,7 @@
 
   <!-- copyright text -->
   <p>
-    copyright &copy; <span>mobyl <small>care</small></span> 2021 | All
+    copyright &copy; <span>mobyl<small>care</small></span> 2021 | All
     Rights Reserved
   </p>
 </section>

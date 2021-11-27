@@ -9,8 +9,8 @@ if (isset($_GET['id'])) {
     // get all the details
     $id = $_GET['id'];
 
-    // sql query to get the selected food 
-    $sql2 = "SELECT * FROM tbl_food WHERE id=$id";
+    // sql query to get the selected model 
+    $sql2 = "SELECT * FROM tbl_model WHERE id=$id";
 
     // Execute the query 
     $result2 = mysqli_query($conn, $sql2);
@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
     // get the value based on query executed 
     $row2 = mysqli_fetch_assoc($result2);
 
-    // get the individual values of selected food 
+    // get the individual values of selected model 
     $title = $row2['title'];
     $description = $row2['description'];
     $price = $row2['price'];
@@ -27,8 +27,8 @@ if (isset($_GET['id'])) {
     $featured = $row2['featured'];
     $active = $row2['active'];
 } else {
-    // Redirect to Manage Food
-    header('location:' . SITEURL . 'admin/manage-food.php');
+    // Redirect to Manage model
+    header('location:' . SITEURL . 'admin/manage-model.php');
     die();
 }
 ?>
@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
     <div id="main-content" class="zindex-2" style="box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);">
 
         <div id="wrapper">
-            <h1 class="text-center py-3">Update Food</h1>
+            <h1 class="text-center py-3">Update model</h1>
 
             <form action="" class="was-validated" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea placeholder="Description of the food" class="form-control" name="description" id="description"><?php echo $description; ?></textarea>
+                    <textarea placeholder="Description of the model" class="form-control" name="description" id="description"><?php echo $description; ?></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -64,7 +64,7 @@ if (isset($_GET['id'])) {
                         } else {
                             // image available
                         ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
+                            <img src="<?php echo SITEURL; ?>images/model/<?php echo $current_image; ?>" width="150px">
                         <?php
                         }
 
@@ -167,7 +167,7 @@ if (isset($_GET['id'])) {
                 <div class="mb-3">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
-                    <button class="btn btn-primary" type="submit" name="submit">Add Food</button>
+                    <button class="btn btn-primary" type="submit" name="submit">Add model</button>
                 </div>
             </form>
 
@@ -199,13 +199,13 @@ if (isset($_GET['id'])) {
 
                         // Rename the image
                         $ext = end(explode('.', $image_name));
-                        $image_name = "Food-Name-" . rand(0000, 9999) . '.' . $ext;
+                        $image_name = "model-Name-" . rand(0000, 9999) . '.' . $ext;
 
                         // get the src path and destination path
                         // source path
                         $src_path = $_FILES['image']['tmp_name'];
                         // destination path
-                        $dest_path = "../images/food/" . $image_name;
+                        $dest_path = "../images/model/" . $image_name;
 
                         // upload the image
                         $upload = move_uploaded_file($src_path, $dest_path);
@@ -217,8 +217,8 @@ if (isset($_GET['id'])) {
                             <strong>Error!</strong>Failed to upload new Image.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                           </div>';
-                            //   redirect to manage food 
-                            header('location:' . SITEURL . 'admin/manage-food.php');
+                            //   redirect to manage model 
+                            header('location:' . SITEURL . 'admin/manage-model.php');
                             die();
                         }
                         // 3.Remove the image if new image is uploaded and current image exists
@@ -227,7 +227,7 @@ if (isset($_GET['id'])) {
                         if ($current_image != "") {
                             // Current Image is Available
                             // remove the image 
-                            $remove_path = "../images/food/" . $current_image;
+                            $remove_path = "../images/model/" . $current_image;
 
                             $remove = unlink($remove_path);
 
@@ -239,8 +239,8 @@ if (isset($_GET['id'])) {
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                               </div>';
 
-                                //   redirect to manage food
-                                header('location:' . SITEURL . 'admin/manage-food.php');
+                                //   redirect to manage model
+                                header('location:' . SITEURL . 'admin/manage-model.php');
                                 die();
                             }
                         }
@@ -254,8 +254,8 @@ if (isset($_GET['id'])) {
                 }
 
 
-                // 4. Update the Food in Database
-                $sql3 = "UPDATE tbl_food SET
+                // 4. Update the model in Database
+                $sql3 = "UPDATE tbl_model SET
                         title = '$title',
                         description = '$description',
                         price = $price,
@@ -270,22 +270,22 @@ if (isset($_GET['id'])) {
                 $result3 = mysqli_query($conn, $sql3);
 
                 // check whether the query is executed or not
-                // Redirect to Manage Food with Session message
+                // Redirect to Manage model with Session message
                 if ($result3 == true) {
-                    // query executed and food updated
+                    // query executed and model updated
                     $_SESSION['update'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> Food Updated Successfully.
+                    <strong>Success!</strong> Model Updated Successfully.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'admin/manage-food.php');
+                    header('location:' . SITEURL . 'admin/manage-model.php');
                     die();
                 } else {
-                    // Failed to Update food
+                    // Failed to Update Model
                     $_SESSION['update'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error!</strong> Failed to update food.
+                    <strong>Error!</strong> Failed to update Model.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'admin/manage-food.php');
+                    header('location:' . SITEURL . 'admin/manage-model.php');
                     die();
                 }
             }
