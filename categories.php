@@ -12,6 +12,10 @@ if (isset($_SESSION['failed']) == true) {
   echo $_SESSION['failed'];
   unset($_SESSION['failed']);
 }
+if (isset($_SESSION['select']) == true) {
+  echo $_SESSION['select']; // Displaying message
+  unset($_SESSION['select']); //REmoving after showing message once
+}
 ?>
 <div class="container d-flex align-items-center justify-content-center gap-3 py-3">
 

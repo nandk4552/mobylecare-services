@@ -15,7 +15,7 @@ if (isset($_SESSION['upload'])) {
     <div id="main-content" class="shadow-lg zindex-2">
 
         <div id="wrapper">
-            <h1 class="text-center py-3">Add Repair</h1>
+            <h1 class="text-center py-3">Add Phone Model</h1>
 
             <form action="" class="was-validated" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -116,7 +116,7 @@ if (isset($_SESSION['upload'])) {
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-primary" type="submit" name="submit">Add Repair</button>
+                    <button class="btn btn-primary" type="submit" name="submit">Add Model</button>
                 </div>
             </form>
 

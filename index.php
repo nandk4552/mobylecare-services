@@ -1,8 +1,6 @@
   <?php include 'partials/_header.php'; ?>
 
 
-  <!-- banner section starts -->
-
   <section id="banner">
     <div class="container py-5">
       <div class="row">

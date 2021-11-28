@@ -1,4 +1,6 @@
-<?php include 'partials/_dbconnect.php' ?>
+<?php include 'partials/_dbconnect.php';
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +12,7 @@
 
   <!-- google Auth -->
   <meta name="google-signin-client_id" content="887049890545-1268fh2hmug5knm91i0h83bksbdacroh.apps.googleusercontent.com" />
+  <link rel="icon" type="image/png" sizes="64x64" href="<?php echo SITEURL; ?>images/fav/favicon-32x32.png">
 
   <title>mobyl care | Mobile Repair and Sell</title>
 
@@ -20,8 +23,8 @@
   <!-- font awesome cdn link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-   <!-- Bootstrap CSS -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -39,7 +42,7 @@
   <!-- Navbar section starts -->
   <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/"><img src="/mobylcare/images/logo.png" alt="" /></a>
+      <a class="navbar-brand" href="<?php echo SITEURL;?>"><img src="/mobylcare/images/logo.png" alt="" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
@@ -49,27 +52,27 @@
             <a class="nav-link" href="/mobylcare">home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL;?>categories.php">Categories</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>categories.php">Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL;?>repair.php">repair</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>repair.php">repair</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL;?>services.php">services</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>services.php">services</a>
           </li>
-         
+
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL;?>store.php">Our Stores</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>store.php">Our Stores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL;?>contact.php">contact</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">contact</a>
           </li>
         </ul>
         <?php
-        
 
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
-        echo '<form class="form-inline my-2 my-lg-0" method="get" action="search.php">
+
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+          echo '<form class="form-inline my-2 my-lg-0" method="get" action="search.php">
           <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search here..." aria-label="Search" />
           <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
                 outline: none !important;
@@ -79,11 +82,11 @@
               " type="submit">
             Search
           </button>
-          <p class="text-light my-2 mx-2" style="text-transform:none;" id="welcome-txt">welcome '.$_SESSION['useremail'].'</p>
+          <p class="text-light my-2 mx-2" style="text-transform:none;" id="welcome-txt">welcome ' . $_SESSION['useremail'] . '</p>
           <a href="partials/_logout.php" class="btn btn-outline-success y-btn mx-3">Logout</a>
         </form>';
-        }else {
-        echo '
+        } else {
+          echo '
         <form class="form-inline my-2 my-lg-0 d-flex">
           <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search" />
           <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
