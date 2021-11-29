@@ -15,8 +15,7 @@
           </p>
           account
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         </button>
       </div>
       <div class="modal-body">
@@ -41,7 +40,7 @@
               and conditions
             </label>
           </div>
-          <button class="btn btn-lg btn-light btn-block" style="background-color: #a517ba; color: #fff" name="signup" type="submit">
+          <button class="btn btn-lg btn-light btn-block" style="background-color: #a517ba; color: #fff; width: 100%;" name="signup" type="submit">
             Sign Up
           </button>
         </form>

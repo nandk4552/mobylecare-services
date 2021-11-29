@@ -65,7 +65,8 @@ session_start();
             <a class="nav-link" href="<?php echo SITEURL; ?>store.php">Our Stores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">contact</a>
+            <!-- <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">Support</a> -->
+            <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">Support</a>
           </li>
         </ul>
         <?php

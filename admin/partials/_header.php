@@ -53,7 +53,13 @@ session_start();
                         <a class="nav-link" href="manage-model.php">Model</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="manage-issue.php">Issue</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="manage-order.php">Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="query.php">Customer Query</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary btn-sm ms-3 text-light" href="logout.php">Logout</a>

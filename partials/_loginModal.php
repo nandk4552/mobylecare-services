@@ -15,9 +15,7 @@
               mobyl <small style="color: #ffbf00">care</small>
             </p>
           </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- /mobylcare/partials/_handleLogin.php -->
@@ -34,7 +32,7 @@
               <div class="g-signin2" data-onsuccess="onSignIn"></div>
               <a href="#" class="btn btn-primary" onclick="signOut();">Sign out</a>
             </div>
-            <button class="btn btn-lg btn-warning btn-block" style="background-color: #a517ba; color: #fff" type="submit" name="submit">
+            <button class="btn btn-lg btn-warning btn-block" style="background-color: #a517ba; color: #fff;  width:100%;" type="submit" name="submit">
               Sign in
             </button>
           </form>
@@ -42,7 +40,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary y-btn" style="background: #ffbf00; color: #222" data-dismiss="modal">
+          <button type="button" class="btn btn-secondary y-btn" style="background: #ffbf00; color: #222;" data-dismiss="modal">
             Close
           </button>
         </div>
