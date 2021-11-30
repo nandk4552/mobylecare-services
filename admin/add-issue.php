@@ -1,15 +1,6 @@
 <?php
-include('partials/_dbconnect.php');
 include('partials/_header.php');
 ?>
-
-<?php
-if (isset($_SESSION['upload'])) {
-    echo $_SESSION['upload'];
-    unset($_SESSION['upload']);
-}
-?>
-
 
 <div class="container my-5">
     <div id="main-content" class="shadow-lg zindex-2">
@@ -19,12 +10,8 @@ if (isset($_SESSION['upload'])) {
 
             <form action="" class="was-validated" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="title" class="form-label">Title </label>
-                    <input type="text" placeholder="Title of the issue" class="form-control" name="title" id="title" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea placeholder="Description of the issue" class="form-control" name="description" id="description"></textarea>
+                    <label for="issue" class="form-label">Title </label>
+                    <input type="text" placeholder="Title of the issue" class="form-control" name="issue" id="issue" aria-describedby="emailHelp">
                 </div>
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
@@ -70,8 +57,8 @@ if (isset($_SESSION['upload'])) {
 
 
                 <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupSelect01">Model</label>
-                    <select class="form-select" name="category" id="inputGroupSelect01">
+                    <label class="input-group-text" for="model">Model</label>
+                    <select class="form-select" name="model" id="model">
                         <option selected>Choose...</option>
                         <?php
                         // Create PHP Code to Display models from database
@@ -150,65 +137,7 @@ if (isset($_SESSION['upload'])) {
                 </div>
             </form>
 
-            <?php
-            // check whether the button is clicked or not
-            if (isset($_POST['submit'])) {
-                // add the model in database
-                // echo"Clicked!";
 
-                // 1. get the data from form
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $price = $_POST['price'];
-                $category = $_POST['category'];
-
-                // check whether the radio button for featured and active are checked or not
-                if (isset($_POST['featured'])) {
-                    $featured = $_POST['featured'];
-                } else {
-                    // Setting the default value
-                    $featured = "No";
-                }
-                if (isset($_POST['active'])) {
-                    $active = $_POST['active'];
-                } else {
-                    // Setting the default value
-                    $active = "No";
-                }
-
-
-                // 3. Insert into Database
-                // create sql query to save or Add model
-
-                // $sql2 = "INSERT INTO `tbl_model` (`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title', '$description', '$price', '$image_name', '$category', '$featured', '$active')";
-
-                $sql2 = "INSERT INTO `tbl_model` (`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title', '$description', '$price', '$image_name', '$category', '$featured', '$active')";
-
-                // Execute the query 
-                $result2 = mysqli_query($conn, $sql2);
-
-                // check whether the data is inserted or not
-                // 4. Redirect with message to Manage model
-
-                if ($result2 == true) {
-                    // data inserted successfully
-                    $_SESSION['add'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> model Added Successfully.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
-                    header('location:' . SITEURL . 'admin/manage-issue.php');
-                    die();
-                } else {
-                    // failed to insert data
-                    $_SESSION['add'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Error!</strong> Failed to Add model.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
-                    header('location:' . SITEURL . 'admin/manage-issue.php');
-                    die();
-                }
-            }
-            ?>
 
 
 
@@ -221,4 +150,60 @@ if (isset($_SESSION['upload'])) {
 
 <?php
 include('partials/_footer.php');
+?>
+<?php
+// check whether the button is clicked or not
+if (isset($_POST['submit'])) {
+    // add the model in database
+    // echo"Clicked!";
+
+    // 1. get the data from form
+    $issue = $_POST['issue'];
+    $category = $_POST['category'];
+    $model = $_POST['model'];
+
+    // check whether the radio button for featured and active are checked or not
+    if (isset($_POST['featured'])) {
+        $featured = $_POST['featured'];
+    } else {
+        // Setting the default value
+        $featured = "No";
+    }
+    if (isset($_POST['active'])) {
+        $active = $_POST['active'];
+    } else {
+        // Setting the default value
+        $active = "No";
+    }
+
+
+    // 3. Insert into Database
+    // create sql query to save or Add issue
+
+    $sql2 = "INSERT INTO `tbl_issue` (`issues`, `model_id`, `category_id`, `featured`, `active`) VALUES ('$issue', '$model', '$category', '$featured', '$active')";
+
+    // Execute the query 
+    $result2 = mysqli_query($conn, $sql2);
+
+    // check whether the data is inserted or not
+    // 4. Redirect to Manage issue Page with message 
+
+    if ($result2 == true) {
+        // data inserted successfully
+        $_SESSION['add'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> Issue Added Successfully.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+        header('location:' . SITEURL . 'admin/manage-issue.php');
+        die();
+    } else {
+        // failed to insert data
+        $_SESSION['add'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> Failed to add issue.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+        header('location:' . SITEURL . 'admin/manage-issue.php');
+        die();
+    }
+}
 ?>

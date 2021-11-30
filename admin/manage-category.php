@@ -54,7 +54,7 @@ if (isset($_SESSION['failed-remove'])) {
 
 
 <div class="container mt-5 py-5">
-    <h1 class="text-center">Manage Category</h1>
+    <h1 class="text-center">Manage Brands</h1>
     <div id="main-content" class="py-3">
         <div id="wrapper">
 

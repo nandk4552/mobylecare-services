@@ -2,28 +2,31 @@
 include('partials/_header.php');
 ?>
 <?php
-if (isset($_SESSION['add'])) {
-    echo $_SESSION['add'];
-    unset($_SESSION['add']);
-}
-if (isset($_SESSION['delete'])) {
-    echo $_SESSION['delete'];
-    unset($_SESSION['delete']);
-}
-if (isset($_SESSION['upload'])) {
-    echo $_SESSION['upload'];
-    unset($_SESSION['upload']);
-}
-if (isset($_SESSION['unauthorize'])) {
-    echo $_SESSION['unauthorize'];
-    unset($_SESSION['unauthorize']);
-}
-if (isset($_SESSION['update'])) {
-    echo $_SESSION['update'];
-    unset($_SESSION['update']);
-}
+    if(isset( $_SESSION['unauthorize'])) {
+        // Display the alert
+        echo  $_SESSION['unauthorize'];
+        // remove alert after showing one time
+        unset( $_SESSION['unauthorize']);
+    }
+    if(isset( $_SESSION['delete'])) {
+        // Display the alert
+        echo  $_SESSION['delete'];
+        // remove alert after showing one time
+        unset( $_SESSION['delete']);
+    }
+    if(isset( $_SESSION['add'])) {
+        // Display the alert
+        echo  $_SESSION['add'];
+        // remove alert after showing one time
+        unset( $_SESSION['add']);
+    }
+    if(isset( $_SESSION['issue'])) {
+        // Display the alert
+        echo  $_SESSION['issue'];
+        // remove alert after showing one time
+        unset( $_SESSION['issue']);
+    }
 ?>
-
 
 <div class="container mt-5 py-5">
     <h1 class="text-center">Manage Issues</h1>
@@ -37,9 +40,7 @@ if (isset($_SESSION['update'])) {
                 <thead>
                     <tr>
                         <th scope="col">Sno</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Image</th>
+                        <th scope="col">Issue</th>
                         <th scope="col">Featured</th>
                         <th scope="col">Active</th>
                         <th scope="col">Actions</th>
@@ -48,56 +49,38 @@ if (isset($_SESSION['update'])) {
                 </thead>
 
                 <?php
-                // create sql query to get all the model
-                $sql = "SELECT * FROM tbl_model";
+                // create sql query to get all the issues
+                $sql = "SELECT * FROM tbl_issue";
 
                 // Execute the query
                 $result = mysqli_query($conn, $sql);
 
-                // Count the rows to check whether we have model or not
+                // Count the rows to check whether we have issue or not
                 $count = mysqli_num_rows($result);
                 // Create serial number variable
                 $sno = 1;
 
                 if ($count > 0) {
-                    //  We have model in Database
-                    // Get the model from Database and Display
+                    //  We have issues in Database
+                    // Get the issues from Database and Display
                     while ($row = mysqli_fetch_assoc($result)) {
                         // get the values from Individual columns
                         $id = $row['id'];
-                        $title = $row['title'];
-                        $price = $row['price'];
-                        $image_name = $row['image_name'];
+                        $issue = $row['issues'];
+                        $model_id = $row['model_id'];
+                        $category_id = $row['category_id'];
                         $featured = $row['featured'];
                         $active = $row['active'];
                 ?>
                         <tbody>
                             <tr>
                                 <td scope="row"><?php echo $sno++; ?>.</td>
-                                <td><?php echo $title; ?></td>
-                                <td>$ <?php echo $price; ?></td>
-                                <td>
-                                    <?php
-                                    // Check whether the we have image or not
-                                    if ($image_name == "") {
-                                        // We donot have image Display Error Message
-                                        echo "<div class='text-danger'>Image Not Added</div>";
-                                    } else {
-                                        // we have Image,Display Image
-                                    ?>
-                                    <img src="<?php echo SITEURL; ?>images/model/<?php echo $image_name; ?>" alt="Image can't Preview right now..." width="100px">
-
-                                    <?php
-
-                                    }
-
-                                    ?>
-                                </td>
+                                <td><?php echo $issue; ?></td>
                                 <td><?php echo $featured; ?></td>
                                 <td><?php echo $active; ?></td>
                                 <td>
                                     <a href="<?php echo SITEURL; ?>admin/update-issue.php?id=<?php echo $id; ?>" class="btn btn-success btn-sm">Update Issue</a>
-                                    <a href="<?php echo SITEURL; ?>admin/delete-issue.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn btn-danger btn-sm">Delete Issue</a>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-issue.php?id=<?php echo $id; ?>" class="btn btn-danger btn-sm">Delete Issue</a>
                                 </td>
 
                             </tr>
@@ -109,7 +92,7 @@ if (isset($_SESSION['update'])) {
                 } else {
                     // model not Added in Database
                     echo "<tr>
-                            <td colspan='7' class='text-danger'>model not Added Yet.</td>
+                            <td colspan='7' class='text-danger'>Issues not added yet.</td>
                           </tr>";
                 }
 
