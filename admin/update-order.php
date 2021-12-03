@@ -30,9 +30,9 @@ include('partials/_header.php');
                     // Details Available
                     $row = mysqli_fetch_assoc($result);
 
-                    $food = $row['food'];
-                    $price = $row['price'];
-                    $qty = $row['qty'];
+                    $issue = $row['issue'];
+                    $category = $row['category'];
+                    $model = $row['model'];
                     $status = $row['status'];
                     $customer_name = $row['customer_name'];
                     $customer_contact = $row['customer_contact'];
@@ -53,17 +53,18 @@ include('partials/_header.php');
 
             <form action="" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Food Name: </label>
-                    <label for="exampleInputEmail1" class="form-label mx-4"><b> <?php echo $food; ?></b></label>
+                    <label for="exampleInputEmail1" class="form-label">Issue Name: </label>
+                    <label for="exampleInputEmail1" class="form-label mx-4"><b> <?php echo $issue; ?></b></label>
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
-                    <label for="exampleInputEmail1" class="form-label mx-4"><b> $<?php echo $price; ?></b></label>
+                    <label for="exampleInputEmail1" class="form-label">Category Name: </label>
+                    <label for="exampleInputEmail1" class="form-label mx-4"><b> <?php echo $category; ?></b></label>
                 </div>
                 <div class="mb-3">
-                    <label for="qty" class="form-label">Qty</label>
-                    <input type="number" value="<?php echo $qty; ?>" class="form-control" name="qty" id="qty" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1" class="form-label">Model Name: </label>
+                    <label for="exampleInputEmail1" class="form-label mx-4"><b> <?php echo $model; ?></b></label>
                 </div>
+               
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect02">Status</label>
                     <select name="status" class="form-select" id="inputGroupSelect02">
@@ -100,7 +101,6 @@ include('partials/_header.php');
                 </div>
 
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <input type="hidden" name="price" value="<?php echo $price; ?>">
                 <button type="submit" name="submit" class="btn btn-primary my-3">Update Order</button>
             </form>
 
@@ -111,9 +111,6 @@ include('partials/_header.php');
 
                 // get all the values from form
                 $id = $_POST['id'];
-                $price = $_POST['price'];
-                $qty = $_POST['qty'];
-                $total = $price * $qty;
                 $status = $_POST['status'];
                 $customer_name = $_POST['customer_name'];
                 $customer_contact = $_POST['customer_contact'];
@@ -123,8 +120,6 @@ include('partials/_header.php');
 
                 // update the values
                 $sql2 = " UPDATE tbl_order SET
-                            qty = $qty,
-                            total = $total,
                             status = '$status',
                             customer_name = '$customer_name',
                             customer_contact = '$customer_contact',
@@ -145,6 +140,7 @@ include('partials/_header.php');
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>';
                     header('location:' . SITEURL . 'admin/manage-order.php');
+                    exit();
                 } else {
                     // Failed to Update
                     $_SESSION['update'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -152,6 +148,7 @@ include('partials/_header.php');
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>';
                     header('location:' . SITEURL . 'admin/manage-order.php');
+                    exit();
                 }
             }
             ?>

@@ -17,10 +17,9 @@ if (isset($_SESSION['update'])) {
                 <thead>
                     <tr>
                         <th scope="col">Sno</th>
-                        <th scope="col">Food</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Issue</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Model</th>
                         <th scope="col">Order Date</th>
                         <th scope="col">Status</th>
                         <th scope="col">Customer Name</th>
@@ -47,10 +46,9 @@ if (isset($_SESSION['update'])) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         // Get all the details
                         $id = $row['id'];
-                        $food = $row['food'];
-                        $price = $row['price'];
-                        $qty = $row['qty'];
-                        $total = $row['total'];
+                        $issue = $row['issue'];
+                        $category = $row['category'];
+                        $model = $row['model'];
                         $order_date = $row['order_date'];
                         $status = $row['status'];
                         $customer_name = $row['customer_name'];
@@ -61,10 +59,9 @@ if (isset($_SESSION['update'])) {
                         <tbody>
                             <tr>
                                 <td><?php echo $sno++; ?></td>
-                                <td><?php echo $food; ?></td>
-                                <td><?php echo $price; ?></td>
-                                <td><?php echo $qty; ?></td>
-                                <td><?php echo $total; ?></td>
+                                <td><?php echo $issue; ?></td>
+                                <td><?php echo $category; ?></td>
+                                <td><?php echo $model; ?></td>
                                 <td><?php echo $order_date; ?></td>
 
                                 <td>

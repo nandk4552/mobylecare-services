@@ -66,7 +66,7 @@ if (isset($_GET['model_id'])) {
         </div>
         <div class="d-grid gap-2 col-6 mx-auto w-100">
           <p class="text-muted">Note: <small><em>*Our Team Will Contact You</em></small></p>
-          <button class="btn btn-primary b-btn" name="submit" type="button">Book Now</button>
+          <a href="<?php echo SITEURL;?>order.php?id=<?php echo $model_id?>" class="btn btn-primary b-btn" name="submit" type="button">Book Now</a>
         </div>
       </div>
     </div>

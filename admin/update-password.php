@@ -15,7 +15,7 @@
             ?>
 
 
-            <form action="/rcw/admin/update-password.php" method="post">
+            <form action="<?php echo SITEURL;?>/admin/update-password.php" method="post">
                 <div class="mb-3">
                     <label for="current_password" class="form-label">Current Password</label>
                     <input type="password" placeholder="Current Password" name="current_password" class="form-control" id="current_password" required>

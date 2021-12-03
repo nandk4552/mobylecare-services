@@ -21,51 +21,53 @@
   </section>
   <!-- Displaying categories section -->
 
-  <?php
-  // Create SQL query to display categories from database4
-  $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
-  // Execute the query
-  $result = mysqli_query($conn, $sql);
-  // count the rows and check whether the categories is available or not
-  $count = mysqli_num_rows($result);
 
-  if ($count > 0) {
-    // Category Avaliable
-    while ($row = mysqli_fetch_assoc($result)) {
-      // Get the values like id, title, image_name
-      $id = $row['id'];
-      $title = $row['title'];
-      $image_name = $row['image_name']; ?>
-      <a href="<?php echo SITEURL; ?>category-repair.php?category_id=<?php echo $id; ?>">
-        <div class="box-3 float-container">
-          <?php
-          // check whether Image is avaiable or not
-          if ($image_name == '') {
-            // Display Message
-            echo ' <div class="text-danger">Image Not Available</div>';
-          } else {
-            // Image Available
-          ?>
-            <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" width="125px">
-          <?php
-          } ?>
+  <section class="container my-3">
+    <h4 class="display-6 text-center font-bold">Most Repaired Mobiles Brands</h4>
+    <div class="d-flex align-items-center justify-content-center" style="gap:1.5rem; margin: 3rem;">
+      <?php
+      // Create SQL query to display categories from database4
+      $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+      // Execute the query
+      $result = mysqli_query($conn, $sql);
+      // count the rows and check whether the categories is available or not
+      $count = mysqli_num_rows($result);
 
-          <h3 class="float-text text-white"><?php echo $title; ?></h3>
-        </div>
-      </a>
+      if ($count > 0) {
+        // Category Avaliable
+        while ($row = mysqli_fetch_assoc($result)) {
+          // Get the values like id, title, image_name
+          $id = $row['id'];
+          $title = $row['title'];
+          $image_name = $row['image_name']; ?>
+          <a style="color:none !important;text-decoration:none !important;" href="<?php echo SITEURL; ?>category-repair.php?category_id=<?php echo $id; ?>">
+            <?php
+            // check whether Image is avaiable or not
+            if ($image_name == '') {
+              // Display Message
+              echo ' <div class="text-danger">Image Not Available</div>';
+            } else {
+              // Image Available
+            ?>
+              <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" width="125px">
+            <?php
+            } ?>
+          </a>
 
-  <?php
-    }
-  } else {
-    // category not available
-    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+
+      <?php
+        }
+      } else {
+        // category not available
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error!</strong> Category Not Added.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-  }
+      }
 
-  ?>
-
+      ?>
+    </div>
+  </section>
   <!-- services section starts -->
 
   <section id="services" class="ml-auto">
