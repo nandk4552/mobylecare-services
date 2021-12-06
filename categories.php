@@ -16,6 +16,10 @@ if (isset($_SESSION['select']) == true) {
   echo $_SESSION['select']; // Displaying message
   unset($_SESSION['select']); //REmoving after showing message once
 }
+if (isset($_SESSION['order']) == true) {
+  echo $_SESSION['order ']; // Displaying message
+  unset($_SESSION['order']); //REmoving after showing message once
+}
 ?>
 <div class="container d-flex align-items-center justify-content-center gap-3 py-3">
 
@@ -47,7 +51,7 @@ if (isset($_SESSION['select']) == true) {
     } else {
       // show an error
       $_SESSION['failed'] = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <strong>Error!</strong> You should check in on some of those fields below.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
     }
