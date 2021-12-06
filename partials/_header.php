@@ -1,7 +1,6 @@
 <?php include 'partials/_dbconnect.php';
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,14 +41,14 @@ session_start();
   <!-- Navbar section starts -->
   <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="<?php echo SITEURL;?>"><img src="/mobylcare/images/logo.png" alt="" /></a>
+      <a class="navbar-brand" href="<?php echo SITEURL; ?>"><img src="/mobylcare/images/logo.png" alt="" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/mobylcare">home</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>">home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo SITEURL; ?>categories.php">Categories</a>
@@ -69,61 +68,57 @@ session_start();
             <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">Support</a>
           </li>
         </ul>
-        <?php
-
-
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-          echo '<form class="form-inline my-2 my-lg-0" method="get" action="search.php">
-          <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search here..." aria-label="Search" />
-          <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
-                outline: none !important;
-                border: 1.5px solid #fff;
-                color: #fff;
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-              " type="submit">
-            Search
-          </button>
-          <p class="text-light my-2 mx-2" style="text-transform:none;" id="welcome-txt">welcome ' . $_SESSION['useremail'] . '</p>
-          <a href="partials/_logout.php" class="btn btn-outline-success y-btn mx-3">Logout</a>
-        </form>';
-        } else {
-          echo '
-        <form class="form-inline my-2 my-lg-0 d-flex">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search" />
-          <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
-                outline: none !important;
-                border: 1.5px solid #fff;
-                color: #fff;
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-              " type="submit">
-            Search
-          </button>
-        </form>
-        <div class="mx-2 my-2">
-          <button class="btn btn-warning mx-2 y-btn" data-toggle="modal" data-target="#loginModal">
-            Login
-          </button>
-          <button class="btn btn-warning y-btn" data-toggle="modal" data-target="#signupModal">
-            SignUp
-          </button>
-        </div>';
-        }
-        ?>
+<?php
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+echo '<form class="form-inline my-2 my-lg-0" style="display: flex; align-items: center; width: 50%;" method="get" action="search.php">
+<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search here..." aria-label="Search" />
+<button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
+      outline: none !important;
+      border: 1.5px solid #fff;
+      color: #fff;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    " type="submit">
+  Search
+</button>
+<p class="text-light my-2 mx-2" style="text-transform:none;" id="welcome-txt">welcome ' . $_SESSION['useremail'] . '</p>
+<a href="partials/_logout.php" class="btn btn-outline-success y-btn mx-3">Logout</a>
+</form>';
+} else {
+echo '
+<form class="form-inline my-2 my-lg-0 d-flex">
+<input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search" />
+<button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
+      outline: none !important;
+      border: 1.5px solid #fff;
+      color: #fff;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    " type="submit">
+  Search
+</button>
+</form>
+<div class="mx-2 my-2">
+<button class="btn btn-warning mx-2 y-btn" data-toggle="modal" data-target="#loginModal">
+  Login
+</button>
+<button class="btn btn-warning y-btn" data-toggle="modal" data-target="#signupModal">
+  SignUp
+</button>
+</div>';
+}
+?>
 
 
       </div>
     </nav>
   </section>
   <!-- Navbar section ends -->
-  <?php
-
+<?php
   include 'partials/_loginModal.php';
   include 'partials/_signupModal.php';
-
   if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true") {
     echo '<div class=" my-0 alert alert-success alert-dismissible fade show" role="alert ">
   <strong>Success!</strong> You can now login
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
   }
-  ?>
+?>

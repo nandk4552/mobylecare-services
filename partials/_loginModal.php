@@ -19,7 +19,7 @@
         </div>
         <div class="modal-body">
           <!-- /mobylcare/partials/_handleLogin.php -->
-          <form class="form-signin" action="" method="post">
+          <form class="form-signin" action="<?php echo SITEURL;?>partials/_handleLogin.php" method="post">
             <a class="navbar-brand my-2">
               <img src="images/logo-bg.png" alt="" />
             </a>

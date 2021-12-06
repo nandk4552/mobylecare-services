@@ -23,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($result = true) {
                 echo $result;
                 $showAlert = true;
-                header("Location: /mobylcare/index.php?signupsuccess=true");
+                header('Location:'.SITEURL.'?signupsuccess=true');
                 exit();
             }
         } else {
             $showError = "Passwords do not match";
         }
     }
-    header("Location: /mobylcare/index.php?signupsuccess=false&error=$showError");
+    header('Location:'.SITEURL.'?signupsuccess=false&error=$showError');
 }

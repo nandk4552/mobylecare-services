@@ -1,5 +1,5 @@
 <?php
-
+$showError = "false";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include '_dbconnect.php';
     $email = $_POST['loginEmail'];
@@ -13,11 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (password_verify($pass, $row['user_pass'])) {
             session_start();
             $_SESSION['loggedin'] = true;
+            $_SESSION['sno'] = $row['sno'];
             $_SESSION['useremail'] = $email;
             echo "Logged in " . $email;
-            header("Location: /mobylcare/index.php");
+            header('Location:' . SITEURL . '/index.php');
             exit();
-        } 
-        header("Location: /mobylcare/index.php");
+        }
     }
+    header('Location:' . SITEURL . '');
 }
