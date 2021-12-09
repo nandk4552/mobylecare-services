@@ -7,7 +7,6 @@ include('partials/_header.php');
     $color = $_POST['color'];
     $model_title = $_SESSION['model_title'];
     $category_title = $_SESSION['category_title'];
-
 ?>
 <?php
     $sql = "SELECT * FROM `tbl_issue` WHERE `id` = $issue_id";
@@ -18,7 +17,6 @@ include('partials/_header.php');
         // echo "getting data";
         // getting issues name with the given id
         $row = mysqli_fetch_assoc($result);
-
         $issue_title = $row['issues'];
     }
     else {
@@ -49,9 +47,9 @@ include('partials/_header.php');
                 <form class="needs-validation" action="" method="POST" novalidate>
                     <div class="row g-3">
                     <div class="col-12">
-                            <label for="username" class="form-label">Full Name</label>
+                            <label for="customer_name" class="form-label">Full Name</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="username"  name="username" placeholder="Full Name" required>
+                                <input type="text" class="form-control" id="customer_name"  name="customer_name" placeholder="Full Name" required>
                             </div>
                         </div>
 
@@ -84,21 +82,12 @@ include('partials/_header.php');
                             </div>
                         </div>
 
-
-
-                        <!-- <div class="col-md-3">
-                            <label for="zip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required>
-                            <div class="invalid -feedback">
-                                Zip code required.
-                            </div>
-                        </div> -->
                     </div>
-                    <input type="hidden" value="<?php echo $issue_title;?>">
-                    <input type="hidden" value="<?php echo $issue_desc;?>">
-                    <input type="hidden" value="<?php echo $category_title;?>">
-                    <input type="hidden" value="<?php echo $model_title;?>">
-                    <input type="hidden" value="<?php echo $color;?>">
+                    <input type="hidden" name="issue" value="<?php echo $issue_title;?>">
+                    <input type="hidden" name="issue_desc" value="<?php echo $issue_desc;?>">
+                    <input type="hidden" name="color" value="<?php echo $color;?>">
+                    <input type="hidden" name="category" value="<?php echo $category_title;?>">
+                    <input type="hidden" name="model" value="<?php echo $model_title;?>">
 
                     <button class="w-100 btn b-btn btn-primary my-4 btn-lg" type="submit" name="order">Order Now</button>
                 </form>
@@ -124,13 +113,20 @@ include('partials/_footer.php');
                 $customer_contact = $_POST['customer_contact'];
                 $customer_email = $_POST['customer_email'];
                 $customer_address = $_POST['customer_address'];
+                $issue = $_POST['issue'];
+                $issue_desc = $_POST['issue_desc'];
+                $category = $_POST['category'];
+                $model = $_POST['model'];
+                $color = $_POST['color'];
                 $status = "ordered";
 
+                
+ 
 
                
                 // 3. Insert into Database
                 // create sql query to save or Add issue
-                $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue_title', '$issue_desc', '$category_title', '$model_title', '$color', current_timestamp(), '$status', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
+                $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue', '$issue_desc', '$category', '$model', '$color', current_timestamp(), '$status', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
 
                 // Execute the query 
                 $result2 = mysqli_query($conn, $sql2);
