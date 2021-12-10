@@ -61,7 +61,7 @@ if (isset($_SESSION['update'])) {
                                 <td><?php echo $sno++; ?></td>
                                 <td><?php echo $issue; ?></td>
                                 <td><?php echo $issue_desc; ?></td>
-                                <td><?php echo $color; ?></td>
+                                <td><input type="color" value="<?php echo $color; ?>"></td>
                                 <td><?php echo $category; ?></td>
                                 <td><?php echo $model; ?></td>
                                 <td><?php echo $order_date; ?></td>

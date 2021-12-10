@@ -171,7 +171,7 @@ if (isset($_SESSION['upload'])) {
                         $src = $_FILES['image']['tmp_name'];
 
                         // Destination Path for the image to be uploaded
-                        $dst = "../images/model/" . $image_name;
+                        $dst = '../images/model/' . $image_name;
 
                         // Finally Upload the model image
                         $upload = move_uploaded_file($src, $dst);
@@ -198,9 +198,9 @@ if (isset($_SESSION['upload'])) {
                 // 3. Insert into Database
                 // create sql query to save or Add model
 
-                // $sql2 = "INSERT INTO `tbl_model` (`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title', '$description', '$price', '$image_name', '$category', '$featured', '$active')";
-
                 $sql2 = "INSERT INTO `tbl_model` (`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title', '$description', '$price', '$image_name', '$category', '$featured', '$active')";
+
+                // $sql2 = "INSERT INTO `tbl_model` (`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title', '$description', '$price', '$image_name', '$category', '$featured', '$active')";
 
                 // Execute the query 
                 $result2 = mysqli_query($conn, $sql2);
