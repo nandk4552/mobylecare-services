@@ -17,7 +17,7 @@ if (isset($_SESSION['upload'])) {
         <div id="wrapper">
             <h1 class="text-center py-3">Add Phone Model</h1>
 
-            <form action="" class="was-validated" method="post" enctype="multipart/form-data">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="was-validated" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title </label>
                     <input type="text" placeholder="Title of the model" class="form-control" name="title" id="title" aria-describedby="emailHelp">
@@ -121,6 +121,7 @@ if (isset($_SESSION['upload'])) {
             </form>
 
             <?php
+            ob_start();
             // check whether the button is clicked or not
             if (isset($_POST['submit'])) {
                 // add the model in database
@@ -186,7 +187,7 @@ if (isset($_SESSION['upload'])) {
                               </div>';
                             header('location:' . SITEURL . 'admin/add-model.php');
                             // Stop the process
-                            die();
+                            exit;
                         }
                     }
                 } else {
@@ -214,16 +215,16 @@ if (isset($_SESSION['upload'])) {
                     <strong>Success!</strong> model Added Successfully.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'admin/manage-model.php');
-                    die();
+                    header('location:' . SITEURL . 'admin/manage-model.php?msg=model+Added+Successfully');
+                    exit;
                 } else {
                     // failed to insert data
                     $_SESSION['add'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Error!</strong> Failed to Add model.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'admin/manage-model.php');
-                    die();
+                    header('location:' . SITEURL . 'admin/manage-model.php?msg=model+Failed+Successfully');
+                    exit;
                 }
             }
             ?>

@@ -10,7 +10,7 @@
 ?>
 
 
-<section id="contact</body>">
+<section id="contact">
   <div class="container mt-5">
     <h1>Contact us for your concerns</h1>
     <form action="<?php echo SITEURL; ?>partials/_handleContact.php" method="post">

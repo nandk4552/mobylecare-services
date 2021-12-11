@@ -85,8 +85,6 @@ body {
 }
 .b-btn:hover {
   background-color: var(--bg-1) !important;
-
-  /* color: var(--color) !important; */
 }
 #b-outline-btn {
   border: 1px solid var(--bg-1) !important;
@@ -183,21 +181,6 @@ body {
 .service h2 {
   font-weight: 600;
   margin-bottom: 0.6rem;
-}
-.service:hover {
-  background: var(--bg-1);
-  color: #fff;
-  transform: scale(1.025);
-}
-.service:hover ion-icon {
-  color: #fff !important;
-}
-#services .btn-primary {
-  box-shadow: none;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 5rem;
-  background: var(--bg-2);
 }
 
 /* -----about section css---- */

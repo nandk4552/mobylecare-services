@@ -51,21 +51,21 @@ session_start();
             <a class="nav-link" href="<?php echo SITEURL; ?>">home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL; ?>categories.php">Categories</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>categories">Categories</a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="<?php echo SITEURL; ?>repair">repair</a>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL; ?>repair.php">repair</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL; ?>services.php">services</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>services">services</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo SITEURL; ?>store.php">Our Stores</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>store">Our Stores</a>
           </li>
           <li class="nav-item">
             <!-- <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">Support</a> -->
-            <a class="nav-link" href="<?php echo SITEURL; ?>contact.php">Support</a>
+            <a class="nav-link" href="<?php echo SITEURL; ?>contact">Support</a>
           </li>
         </ul>
 <?php

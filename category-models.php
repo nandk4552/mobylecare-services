@@ -4,7 +4,7 @@ include('partials/_header.php');
 <nav aria-label="breadcrumb" style="margin-left: 20px;">
     <ol class="breadcrumb" style="margin-top: 20px;">
         <li class="breadcrumb-item"><a href="<?php echo SITEURL; ?>">Home</a></li>
-        <li class="breadcrumb-item"><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo SITEURL; ?>categories">Categories</a></li>
         <li class="breadcrumb-item active" aria-current="page">Models</li>
     </ol>
 </nav>
@@ -38,7 +38,7 @@ include('partials/_header.php');
 
             if ($count > 0) {
 
-                // We have data and Get the value from Database
+                // We have data a   nd Get the value from Database
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     // get the title based on category id
@@ -47,7 +47,7 @@ include('partials/_header.php');
                     $model_id = $row['id'];
                     echo '
           
-                        <a href="'.SITEURL.'issues.php?category_id='.$category_id.'&&model_id='.$model_id.'" class="col">
+                        <a href="'.SITEURL.'issues?category_id='.$category_id.'&&model_id='.$model_id.'" style="text-decoration: none !important;" class="col">
                             <div class="p-1 border bg-light  shadow-sm" style="border-radius: 10px; display: flex; align-items: center; flex-direction: column;">
                                 <img src=' . SITEURL . '/images/model/' . $image_name . ' alt="">
                                 <p>' . $category_title . '</p>
@@ -58,6 +58,7 @@ include('partials/_header.php');
                 }
 
             }
+            
 
         } 
         else {
@@ -66,7 +67,7 @@ include('partials/_header.php');
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
             // redirect the user to categories page to select mobile
-            header('location:' . SITEURL . 'categories.php');
+            header('location:' . SITEURL . 'categories');
             die();
         }
         ?>

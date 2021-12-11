@@ -1,0 +1,16 @@
+RewriteEngine on
+
+RewriteRule ^index index.php [NC,L] 
+RewriteRule ^store store.php [NC,L] 
+RewriteRule ^about about.php [NC,L] 
+RewriteRule ^categories categories.php [NC,L] 
+RewriteRule ^contact contact.php [NC,L] 
+RewriteRule ^issues issues.php [NC,L] 
+RewriteRule ^models models.php [NC,L]
+RewriteRule ^order order.php [NC,L]
+RewriteRule ^repair repair.php [NC,L]
+RewriteRule ^search search.php [NC,L]
+RewriteRule ^services services.php [NC,L]
+RewriteRule ^testimonials testimonials.php [NC,L]
+RewriteRule ^category-repair category-repair.php [NC,L]
+RewriteRule ^category-models category-models.php [NC,L]

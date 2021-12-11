@@ -1,5 +1,9 @@
 <?php include 'partials/_header.php'; ?>
-<section id="banner">
+<div class="alert alert-warning alert-dismissible fade show m-0" role="alert">
+  <strong>Warning!</strong> Sorry for the inconvenience Its under Development.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<section id="banner" class="pt-0">
   <div class="container py-5">
     <div class="row">
       <div class="col-md-6 text-center">
@@ -19,7 +23,7 @@
 </section>
 <!-- Displaying categories section -->
 <section class="container my-3">
-  <h4 class="display-6 text-center font-bold">Most Repaired Mobiles Brands</h4>
+  <h4 class="title display-6 text-center font-bold">Most Repaired Mobile Brands</h4>
   <div class="d-flex align-items-center justify-content-center" style="gap:1.5rem; margin: 3rem;">
     <?php
     // Create SQL query to display categories from database4
@@ -36,7 +40,7 @@
         $id = $row['id'];
         $title = $row['title'];
         $image_name = $row['image_name']; ?>
-        <a style="color:none !important;text-decoration:none !important;" href="<?php echo SITEURL; ?>category-repair.php?category_id=<?php echo $id; ?>">
+        <a style="color:none !important;text-decoration:none !important;" href="<?php echo SITEURL; ?>category-repair?category_id=<?php echo $id; ?>">
           <?php
           // check whether Image is avaiable or not
           if ($image_name == '') {
@@ -45,7 +49,7 @@
           } else {
             // Image Available
           ?>
-            <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" width="125px">
+            <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="" class="img-responsive img-curve" width="125px">
           <?php
           } ?>
         </a>
@@ -67,46 +71,56 @@
 <!-- services section starts -->
 
 <section id="services" class="ml-auto">
-  <h1 class="title text-center">Our Services</h1>
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4 service">
-        <ion-icon name="laptop-outline"></ion-icon>
-        <h2>Screen Replacement</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
-
-      <div class="col-md-4 service">
-        <ion-icon name="stats-chart-outline"></ion-icon>
-        <h2>Sell old Mobile</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
-
-      <div class="col-md-4 service">
-        <ion-icon name="color-palette-outline"></ion-icon>
-        <h2>Quick service</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
-
-      <div class="col-md-4 service">
-        <ion-icon name="laptop-outline"></ion-icon>
-        <h2>Screen Replacement</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
-
-      <div class="col-md-4 service">
-        <ion-icon name="stats-chart-outline"></ion-icon>
-        <h2>Sell old Mobile</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
-
-      <div class="col-md-4 service">
-        <ion-icon name="color-palette-outline"></ion-icon>
-        <h2>Quick service</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-      </div>
+<div>
+        <h1 class="title text-center py-2">Our Services</h1>
+        <small><em style="text-transform: none;" class="d-flex justify-content-center py-2">***Quality products with affordable price </em></small>
     </div>
-  </div>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 service">
+                <ion-icon name="laptop-outline"></ion-icon>
+                <!-- <i class="fa fa-mobile" aria-hidden="true"></i> -->
+                <h2>Screen Replacement</h2>
+                <p>same day screen replacement warranty on selected brands</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+
+            <div class="col-md-4 service">
+                <ion-icon name="stats-chart-outline"></ion-icon>
+                <h2>Battery</h2>
+                <p>Any battery related issues and battery replacement available</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+
+            <div class="col-md-4 service">
+                <ion-icon name="color-palette-outline"></ion-icon>
+                <h2>Mic</h2>
+                <p>mic related issues will be repaired</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+
+            <div class="col-md-4 service">
+                <ion-icon name="laptop-outline"></ion-icon>
+                <h2>Aux Jack</h2>
+                <p>aux jack or related issues will be repaired</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+
+            <div class="col-md-4 service">
+                <ion-icon name="stats-chart-outline"></ion-icon>
+                <h2>charging Jack</h2>
+                <p>charging jack or charging related issues will be repaired</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+
+            <div class="col-md-4 service">
+                <ion-icon name="color-palette-outline"></ion-icon>
+                <h2>Quick service</h2>
+                <p>we try to repair your mobile related issues in optimal time at your door step</p>
+                <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- services section ends -->

@@ -2,22 +2,9 @@
     include 'partials/_header.php' ;
     include 'partials/_dbconnect.php'
 ?>
-<!-- offer starts -->
-<div class="container-fluid con-1">
-    <div id="hero" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Instant Repair</h1>
-            <p class="lead font-weight-normal">Same day screen replacement with 6 months warranty on selected brands</p>
-            <a class="btn btn-outline-warning shadow-sm" href="#">Read more</a>
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-    </div>
-</div>
-<!-- offer ends -->
 
+<h2 class="text-center text-dark my-3">Categories</h2>
 <div class="container my-3">
-    <h2 class="text-center text-dark my-3">Categories</h2>
     <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
