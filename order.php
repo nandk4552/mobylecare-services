@@ -2,6 +2,13 @@
 include('partials/_header.php');
 ?>
 <?php
+    session_start();
+    if(!empty($_SESSION)){
+        echo $_SESSION["message"];
+        session_unset();
+    }
+?>
+<?php
     $issue_desc = $_POST['issue_desc'];
     $issue_id = $_POST['issue_select'];
     $color = $_POST['color'];
@@ -136,20 +143,17 @@ include('partials/_footer.php');
 
                 if ($result2 == true) {
                     // data inserted successfully
-                    $_SESSION['order'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> Your order has been submitted successfully.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
-                    header('location:' . SITEURL . 'categories.php');
+                    $_SESSION["message"] = "<div class='alert alert-danger'>Your issue has been added successfully give your details so that our team can reach you.</div>";
+                    header("Location: index.php");
                     die();
                 } else {
                     // failed to insert data
-                    $_SESSION['order'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                    $_SESSION['issue-order'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> 
                     <strong>Error!</strong> Sorry for the inconvience, We are facing some technical issue kindly try after some time.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'categories.php');
+                    header('location:' . SITEURL . 'order.php');
                     die();
                 }
             }
-            ?>
+            ?>  

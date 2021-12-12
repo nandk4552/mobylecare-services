@@ -21,8 +21,7 @@ if (isset($_SESSION['order']) == true) {
   unset($_SESSION['order']); //REmoving after showing message once
 }
 ?>
-<div class="container d-flex align-items-center justify-content-center gap-3 py-3">
-
+<div id="category" class="row align-md-items-center justify-content-center gap-3 pb-3" style="    display: -webkit-inline-box;padding: 50px 75px;">
   <?php
   $sql = "SELECT * FROM `tbl_category`";
 
@@ -40,10 +39,10 @@ if (isset($_SESSION['order']) == true) {
         $featured = $row['featured'];
         $active = $row['active'];
   ?>
-        <div class="card" style="width: 18rem;">
+        <div class="card px-2 shadow-sm" style="width: 10rem;">
           <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class="card-img-top" alt="...">
           <div class="card-body d-flex justify-content-center">
-            <a href="category-models?category_id=<?php echo $id;?>" class="card-link btn btn-sm b-btn btn-primary">Select Model</a>
+            <a href="category-models?category_id=<?php echo $id; ?>" class="card-link btn btn-sm b-btn btn-primary">Select Model</a>
           </div>
         </div>
   <?php

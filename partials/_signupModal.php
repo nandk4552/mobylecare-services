@@ -19,7 +19,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-signin text-center" action="/mobylcare/partials/_handleSignup.php" method="post">
+        <form class="form-signin text-center" action="<?php echo SITEURL; ?>partials/_handleSignup.php" method="post">
           <a class="navbar-brand my-2">
             <img src="images/logo-bg.png" alt="" />
           </a>
