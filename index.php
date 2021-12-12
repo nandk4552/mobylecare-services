@@ -88,42 +88,42 @@
         <img src="<?php echo SITEURL; ?>images/icons/screen-bg.png" alt="">
         <h2>Screen Replacement</h2>
         <p>same day screen replacement warranty on selected brands</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
 
       <div class="col-md-4 service">
       <img src="<?php echo SITEURL; ?>images/icons/battery-bg-1.png" alt="">
         <h2>Battery</h2>
         <p>Any battery related issues and battery replacement available</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
 
       <div class="col-md-4 service">
       <img src="<?php echo SITEURL; ?>images/icons/mic.png" alt="">
         <h2>Mic</h2>
         <p>mic related issues will be repaired or replacement with new one</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
 
       <div class="col-md-4 service">
       <img src="<?php echo SITEURL; ?>images/icons/aux-jack.png"  alt="">
         <h2>Aux Jack</h2>
         <p>aux jack not working or related issues will be repaired on your doorstep</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
 
       <div class="col-md-4 service">
       <img src="<?php echo SITEURL; ?>images/icons/charge-bg.png" alt="">
         <h2>charging Jack</h2>
         <p>charging jack or charging related issues will be repaired</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
 
       <div class="col-md-4 service">
       <img src="<?php echo SITEURL; ?>images/icons/service.png" style="width:100px !important;"  alt="">
         <h2>Quick service</h2>
         <p>we try to repair your mobile related issues in optimal time at your door step</p>
-        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories">Repair Now</a>
+        <a class="btn btn-sm btn-block b-btn" href="<?php echo SITEURL; ?>categories.php">Repair Now</a>
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ if (isset($_GET['category_id'])) {
   }
 } else {
   // if failed to get the id redirect the user to categories
-  header('location:' . SITEURL . 'categories');
+  header('location:' . SITEURL . 'categories.php');
   die();
 }
 if (isset($_GET['model_id'])) {
@@ -36,11 +36,11 @@ if (isset($_GET['model_id'])) {
   }
 } else {
   // if failed to get the id redirect the user to categories
-  header('location:' . SITEURL . 'categories');
+  header('location:' . SITEURL . 'categories.php');
   die();
 }
 ?>
-<form action="<?php echo SITEURL; ?>order" method="POST">
+<form action="<?php echo SITEURL; ?>order.php" method="POST">
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
       <div class="row">

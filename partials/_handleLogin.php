@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['sno'] = $row['sno'];
             $_SESSION['useremail'] = $email;
             echo "Logged in " . $email;
-            header('Location:' . SITEURL . '/index.php');
+            header('Location:' . SITEURL . 'index.php');
             exit();
         }
     }

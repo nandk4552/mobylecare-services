@@ -42,7 +42,7 @@ if (isset($_SESSION['order']) == true) {
         <div class="card px-2 shadow-sm" style="width: 10rem;">
           <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" class="card-img-top" alt="...">
           <div class="card-body d-flex justify-content-center">
-            <a href="category-models?category_id=<?php echo $id; ?>" class="card-link btn btn-sm b-btn btn-primary">Select Model</a>
+            <a href="category-models.php?category_id=<?php echo $id; ?>" class="card-link btn btn-sm b-btn btn-primary">Select Model</a>
           </div>
         </div>
   <?php

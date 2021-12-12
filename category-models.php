@@ -47,7 +47,7 @@ include('partials/_header.php');
                     $model_id = $row['id'];
                     echo '
           
-                        <a href="'.SITEURL.'issues?category_id='.$category_id.'&&model_id='.$model_id.'" style="text-decoration: none !important;" class="col">
+                        <a href="'.SITEURL.'issues.php?category_id='.$category_id.'&&model_id='.$model_id.'" style="text-decoration: none !important;" class="col">
                             <div class="p-1 border bg-light  shadow-sm" style="border-radius: 10px; display: flex; align-items: center; flex-direction: column;">
                                 <img src=' . SITEURL . '/images/model/' . $image_name . ' alt="">
                                 <p>' . $category_title . '</p>

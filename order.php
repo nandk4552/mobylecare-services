@@ -2,33 +2,25 @@
 include('partials/_header.php');
 ?>
 <?php
-    session_start();
-    if(!empty($_SESSION)){
-        echo $_SESSION["message"];
-        session_unset();
-    }
+$issue_desc = $_POST['issue_desc'];
+$issue_id = $_POST['issue_select'];
+$color = $_POST['color'];
+$model_title = $_SESSION['model_title'];
+$category_title = $_SESSION['category_title'];
 ?>
 <?php
-    $issue_desc = $_POST['issue_desc'];
-    $issue_id = $_POST['issue_select'];
-    $color = $_POST['color'];
-    $model_title = $_SESSION['model_title'];
-    $category_title = $_SESSION['category_title'];
-?>
-<?php
-    $sql = "SELECT * FROM `tbl_issue` WHERE `id` = $issue_id";
+$sql = "SELECT * FROM `tbl_issue` WHERE `id` = $issue_id";
 
-    $result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
-    if($result == true) {
-        // echo "getting data";
-        // getting issues name with the given id
-        $row = mysqli_fetch_assoc($result);
-        $issue_title = $row['issues'];
-    }
-    else {
-        header('location:' . SITEURL);  
-    }
+if ($result == true) {
+    // echo "getting data";
+    // getting issues name with the given id
+    $row = mysqli_fetch_assoc($result);
+    $issue_title = $row['issues'];
+} else {
+    header('location:' . SITEURL);
+}
 ?>
 <style>
     .bd-placeholder-img {
@@ -53,10 +45,10 @@ include('partials/_header.php');
                 <h4 class="mb-3">Your Details</h4>
                 <form class="needs-validation" action="" method="POST" novalidate>
                     <div class="row g-3">
-                    <div class="col-12">
+                        <div class="col-12">
                             <label for="customer_name" class="form-label">Full Name</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="customer_name"  name="customer_name" placeholder="Full Name" required>
+                                <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Full Name" required>
                             </div>
                         </div>
 
@@ -90,11 +82,11 @@ include('partials/_header.php');
                         </div>
 
                     </div>
-                    <input type="hidden" name="issue" value="<?php echo $issue_title;?>">
-                    <input type="hidden" name="issue_desc" value="<?php echo $issue_desc;?>">
-                    <input type="hidden" name="color" value="<?php echo $color;?>">
-                    <input type="hidden" name="category" value="<?php echo $category_title;?>">
-                    <input type="hidden" name="model" value="<?php echo $model_title;?>">
+                    <input type="hidden" name="issue" value="<?php echo $issue_title; ?>">
+                    <input type="hidden" name="issue_desc" value="<?php echo $issue_desc; ?>">
+                    <input type="hidden" name="color" value="<?php echo $color; ?>">
+                    <input type="hidden" name="category" value="<?php echo $category_title; ?>">
+                    <input type="hidden" name="model" value="<?php echo $model_title; ?>">
 
                     <button class="w-100 btn b-btn btn-primary my-4 btn-lg" type="submit" name="order">Order Now</button>
                 </form>
@@ -110,50 +102,59 @@ include('partials/_footer.php');
 ?>
 
 <?php
-            // check whether the button is clicked or not
-            if (isset($_POST['order'])) {
-                // add the model in database
-                // echo"Clicked!";
+// check whether the button is clicked or not
+if (isset($_POST['order'])) {
+    // add the model in database
+    // echo"Clicked!";
 
-                // 1. get the data from form
-                $customer_name = $_POST['customer_name'];
-                $customer_contact = $_POST['customer_contact'];
-                $customer_email = $_POST['customer_email'];
-                $customer_address = $_POST['customer_address'];
-                $issue = $_POST['issue'];
-                $issue_desc = $_POST['issue_desc'];
-                $category = $_POST['category'];
-                $model = $_POST['model'];
-                $color = $_POST['color'];
-                $status = "ordered";
+    // 1. get the data from form
+    $customer_name = $_POST['customer_name'];
 
-                
- 
+    $customer_contact = $_POST['customer_contact'];
 
-               
-                // 3. Insert into Database
-                // create sql query to save or Add issue
-                $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue', '$issue_desc', '$category', '$model', '$color', current_timestamp(), '$status', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
+    $customer_email = $_POST['customer_email'];
 
-                // Execute the query 
-                $result2 = mysqli_query($conn, $sql2);
+    $customer_address = $_POST['customer_address'];
 
-                // check whether the data is inserted or not
-                // 4. Redirect with message to Manage model
+    $issue = $_POST['issue'];
+    
+    $issue_desc = $_POST['issue_desc'];
 
-                if ($result2 == true) {
-                    // data inserted successfully
-                    $_SESSION["message"] = "<div class='alert alert-danger'>Your issue has been added successfully give your details so that our team can reach you.</div>";
-                    header("Location: index.php");
-                    die();
-                } else {
-                    // failed to insert data
-                    $_SESSION['issue-order'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> 
+    $category = $_POST['category'];
+
+    $model = $_POST['model'];
+
+    $color = $_POST['color'];
+
+    $status = "ordered";
+
+
+
+
+
+    // 3. Insert into Database
+    // create sql query to save or Add issue
+    $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue', '$issue_desc', '$category', '$model', '$color', current_timestamp(), '$status', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
+
+    // Execute the query 
+    $result2 = mysqli_query($conn, $sql2);
+
+    // check whether the data is inserted or not
+    // 4. Redirect with message to Manage model
+
+    if ($result2 == true) {
+        // data inserted successfully
+        $_SESSION["message"] = "<div class='alert alert-danger'>Your issue has been added successfully give your details so that our team can reach you.</div>";
+        header("Location: index.php");
+        die();
+    } else {
+        // failed to insert data
+        $_SESSION['issue-order'] = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> 
                     <strong>Error!</strong> Sorry for the inconvience, We are facing some technical issue kindly try after some time.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>';
-                    header('location:' . SITEURL . 'order.php');
-                    die();
-                }
-            }
-            ?>  
+        header('location:' . SITEURL . 'order.php');
+        die();
+    }
+}
+?>

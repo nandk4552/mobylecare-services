@@ -17,7 +17,7 @@ include('partials/_header.php');
 
                 <?php
                 // create sql query to get all the model
-                $sql = "SELECT * FROM `contactus`";
+                $sql = "SELECT * FROM contactus";
 
                 // Execute the query
                 $result = mysqli_query($conn, $sql);
