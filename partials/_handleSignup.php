@@ -3,9 +3,14 @@ $showError = "false";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include '_dbconnect.php';
-    $user_email = $_POST['signupEmail'];
-    $pass = $_POST['sigupPassword'];
-    $cpass = $_POST['signupcPassword'];
+    // $user_email = $_POST['signupEmail'];
+    $user_email = mysqli_real_escape_string($conn, $_POST['signupEmail']);
+
+    // $pass = $_POST['sigupPassword'];
+    $pass = mysqli_real_escape_string($conn, $_POST['sigupPassword']);
+
+    // $cpass = $_POST['signupcPassword'];
+    $cpass = mysqli_real_escape_string($conn, $_POST['signupcPassword']);
 
     // check whether the username exists already
     $existSql = "SELECT * FROM `users` WHERE user_email = '$user_email'";
@@ -23,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($result = true) {
                 echo $result;
                 $showAlert = true;
-                header('Location:'.SITEURL.'?signupsuccess=true');
+                header('Location:' . SITEURL . '?signupsuccess=true');
                 exit();
             }
         } else {
             $showError = "Passwords do not match";
         }
     }
-    header('Location:'.SITEURL.'?signupsuccess=false&error=$showError');
+    header('Location:' . SITEURL . '?signupsuccess=false&error=$showError');
 }

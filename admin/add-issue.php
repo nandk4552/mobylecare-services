@@ -158,19 +158,24 @@ if (isset($_POST['submit'])) {
     // echo"Clicked!";
 
     // 1. get the data from form
-    $issue = $_POST['issue'];
-    $category = $_POST['category'];
-    $model = $_POST['model'];
+    // $issue = $_POST['issue'];
+    $issue = mysqli_real_escape_string($conn, $_POST['issue']);
+    // $category = $_POST['category'];
+    $category = mysqli_real_escape_string($conn, $_POST['category']);
+    // $model = $_POST['model'];
+    $model = mysqli_real_escape_string($conn, $_POST['model']);
 
     // check whether the radio button for featured and active are checked or not
     if (isset($_POST['featured'])) {
-        $featured = $_POST['featured'];
+        // $featured = $_POST['featured'];
+        $featured = mysqli_real_escape_string($conn, $_POST['featured']);
     } else {
         // Setting the default value
         $featured = "No";
     }
     if (isset($_POST['active'])) {
-        $active = $_POST['active'];
+        // $active = $_POST['active'];
+        $active = mysqli_real_escape_string($conn, $_POST['active']);
     } else {
         // Setting the default value
         $active = "No";

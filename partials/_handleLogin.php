@@ -2,8 +2,10 @@
 $showError = "false";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include '_dbconnect.php';
-    $email = $_POST['loginEmail'];
-    $pass = $_POST['loginPass'];
+    // $email = $_POST['loginEmail'];
+    $email = mysqli_real_escape_string($conn ,$_POST['loginEmail']);
+    // $pass = $_POST['loginPass'];
+    $pass = mysqli_real_escape_string($conn ,$_POST['loginPass']);
 
     $sql = "Select * from users where user_email = '$email'";
     $result = mysqli_query($conn, $sql);

@@ -5,13 +5,15 @@
 
 <!-- search results starts here -->
 <div class="container my-3" id="maincontainer">
-    <h1 class="py-3">Search results for <em>"<?php echo $_GET['search']; ?>"</em></h1>
+    <h1 class="py-3">Search results for <em>"<?php echo $_POST['search']; ?>"</em></h1>
     <!-- logic for searching threads -->
     <?php
     $noresults = true;
-    $query = $_GET['search'];
+    // $query = $_POST['search'];
+    $query = mysqli_real_escape_string($conn, $_POST['search']);
+
     // change this query according to my data base
-    $sql = "SELECT * FROM threads WHERE MATCH (thread_title, thread_desc) against ('$query')";
+    $sql = "SELECT * FROM tbl_category WHERE MATCH (`title`) against ('$query')";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {

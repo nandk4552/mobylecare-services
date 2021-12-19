@@ -91,12 +91,14 @@ if (isset($_POST['submit'])) {
     // echo " Clicked";
 
     // 1.Get the data from Category Form
-    $title = $_POST['title'];
+    // $title = $_POST['title'];
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
 
     // For featured radio input , we need to check whether the button is selected or not
     if (isset($_POST['featured'])) {
         // Get the value from form 
-        $featured = $_POST['featured'];
+        // $featured = $_POST['featured'];
+        $featured = mysqli_real_escape_string($conn, $_POST['featured']);
     } else {
         // Set the default value
         $featured = "No";
@@ -105,7 +107,8 @@ if (isset($_POST['submit'])) {
     // For active radio input , we need to check whether the button is selected or not
     if (isset($_POST['active'])) {
         // Get the value from form 
-        $active = $_POST['active'];
+        // $active = $_POST['active'];
+        $active = mysqli_real_escape_string($conn, $_POST['active']);
     } else {
         // Set the default value
         $active = "No";

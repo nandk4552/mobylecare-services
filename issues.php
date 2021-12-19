@@ -100,9 +100,9 @@ if (isset($_GET['model_id'])) {
             <button name="submit" class="btn btn-primary b-btn" type="submit">Book Now</button>
             <?php
             session_start();
-            $_SESSION['issue_select'] = $_POST['issue_select'];
-            $_SESSION['issue_desc'] = $_POST['issue_desc'];
-            $_SESSION['color'] = $_POST['color'];
+            $_SESSION['issue_select'] = mysqli_real_escape_string($conn, $_POST['issue_select']);
+            $_SESSION['issue_desc'] = mysqli_real_escape_string($conn, $_POST['issue_desc']);
+            $_SESSION['color'] = mysqli_real_escape_string($conn,$_POST['color']);
             $_SESSION['category_title'] = $category_title;
             $_SESSION['model_title'] = $model_title;
             ?>

@@ -33,7 +33,7 @@ include('partials/_dbconnect.php');
 
 
 
-        <form class="form-floating" action="/mobylcare/admin/login.php" method="post">
+        <form class="form-floating" action="<?php echo SITEURL; ?>admin/login.php" method="post">
             <h1 class="display-4 text-dark font-weight-700">mobylcare</h1>
             <h1 class="h3 mb-3 fw-normal">Please sign into Admin </h1>
 

@@ -1,10 +1,11 @@
 <?php
 include('partials/_header.php');
+$error = "";
 ?>
 <?php
-$issue_desc = $_POST['issue_desc'];
-$issue_id = $_POST['issue_select'];
-$color = $_POST['color'];
+$issue_desc = mysqli_real_escape_string($conn, $_POST['issue_desc']);
+$issue_id = mysqli_real_escape_string($conn, $_POST['issue_select']);
+$color = mysqli_real_escape_string($conn, $_POST['color']);
 $model_title = $_SESSION['model_title'];
 $category_title = $_SESSION['category_title'];
 ?>
@@ -43,7 +44,7 @@ if ($result == true) {
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Your Details</h4>
-                <form class="needs-validation" action="" method="POST" novalidate>
+                <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" novalidate>
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="customer_name" class="form-label">Full Name</label>
@@ -57,8 +58,8 @@ if ($result == true) {
                             <label for="customer_contact" class="form-label">Phone Number</label>
                             <div class="input-group has-validation">
                                 <input type="number" class="form-control" id="customer_contact" name="customer_contact" placeholder="Mobile Number" required>
-                                <div class="invalid-feedback">
-                                    Your Mobile Number is required.
+                                <div class="invalid-feedback text-danger">
+                                    <?php echo $error; ?>
                                 </div>
                             </div>
                         </div>
@@ -108,25 +109,36 @@ if (isset($_POST['order'])) {
     // echo"Clicked!";
 
     // 1. get the data from form
-    $customer_name = $_POST['customer_name'];
+    // $customer_name = $_POST['customer_name'];
+    $customer_name = mysqli_real_escape_string($conn, $_POST['customer_name']);
 
-    $customer_contact = $_POST['customer_contact'];
+    // $customer_contact = $_POST['customer_contact'];
+    $customer_contact = mysqli_real_escape_string($conn, $_POST['customer_contact']);
 
-    $customer_email = $_POST['customer_email'];
 
-    $customer_address = $_POST['customer_address'];
+    // $customer_email = $_POST['customer_email'];
+    $customer_email = mysqli_real_escape_string($conn, $_POST['customer_email']);
 
-    $issue = $_POST['issue'];
-    
-    $issue_desc = $_POST['issue_desc'];
+    // $customer_address = $_POST['customer_address'];
+    $customer_address = mysqli_real_escape_string($conn, $_POST['customer_address']);
 
-    $category = $_POST['category'];
+    // $issue = $_POST['issue'];
+    $issue = mysqli_real_escape_string($conn, $_POST['issue']);
 
-    $model = $_POST['model'];
+    // $issue_desc = $_POST['issue_desc'];
+    $issue_desc = mysqli_real_escape_string($conn, $_POST['issue_desc']);
 
-    $color = $_POST['color'];
+    // $category = $_POST['category'];
+    $category = mysqli_real_escape_string($conn, $_POST['category']);
+
+    // $model = $_POST['model'];
+    $model = mysqli_real_escape_string($conn, $_POST['model']);
+
+    // $color = $_POST['color'];
+    $color = mysqli_real_escape_string($conn, $_POST['color']);
 
     $status = "ordered";
+    $stat = mysqli_real_escape_string($conn, $status);
 
 
 
@@ -134,7 +146,7 @@ if (isset($_POST['order'])) {
 
     // 3. Insert into Database
     // create sql query to save or Add issue
-    $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue', '$issue_desc', '$category', '$model', '$color', current_timestamp(), '$status', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
+    $sql2 = "INSERT INTO `tbl_order` (`issue`, `issue_desc`, `category`, `model`, `color`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES ('$issue', '$issue_desc', '$category', '$model', '$color', current_timestamp(), '$stat', '$customer_name', '$customer_contact', '$customer_email', '$customer_address')";
 
     // Execute the query 
     $result2 = mysqli_query($conn, $sql2);

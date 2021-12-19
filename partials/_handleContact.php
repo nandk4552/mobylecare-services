@@ -1,9 +1,27 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include '_dbconnect.php';
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $desc = $_POST['desc'];
+    $error = "";
+    if (isset($_POST['name']) && isset($_POST['desc']) && $_POST['name'] != '' && $_POST['desc'] != '') { 
+
+        $name = $_POST['name'];
+        $desc = $_POST['desc'];
+    }
+    else {
+        $error = "Please enter your name and message";
+    }
+    
+    if (isset($_POST['email'])  && $_POST['email'] != '') {
+
+        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+          $email = $_POST['email'];
+        }
+        else {
+            $error =  "Invalid email";
+        }
+    }
+    
+
 
     // Submit these to a databases
 

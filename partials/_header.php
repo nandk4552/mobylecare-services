@@ -41,7 +41,7 @@ session_start();
   <!-- Navbar section starts -->
   <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="<?php echo SITEURL; ?>"><img src="<?php echo SITEURL; ?>images/logo.png" alt="" /></a>
+      <a class="navbar-brand" href="<?php echo SITEURL; ?>"><img src="<?php echo SITEURL; ?>images/logo.png" height="2.2rem" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>
@@ -70,7 +70,7 @@ session_start();
         </ul>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-echo '<form class="form-inline my-2 my-lg-0" style="display: flex; align-items: center; width: 50%;" method="get" action="search.php">
+echo '<form class="form-inline my-2 my-lg-0" style="display: flex; align-items: center; width: 50%;" method="post" action="search.php">
 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search here..." aria-label="Search" />
 <button class="btn btn-outline-warning my-2 mx-2 my-sm-0" style="
       outline: none !important;

@@ -128,20 +128,30 @@ if (isset($_SESSION['upload'])) {
                 // echo"Clicked!";
 
                 // 1. get the data from form
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $price = $_POST['price'];
-                $category = $_POST['category'];
+                // $title = $_POST['title'];
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+
+                // $description = $_POST['description'];
+                $description = mysqli_real_escape_string($conn, $_POST['description']);
+
+                // $price = $_POST['price'];
+                $price = mysqli_real_escape_string($conn, $_POST['price']);
+
+                // $category = $_POST['category'];
+                $category = mysqli_real_escape_string($conn, $_POST['category']);
+
 
                 // check whether the radio button for featured and active are checked or not
                 if (isset($_POST['featured'])) {
-                    $featured = $_POST['featured'];
+                    // $featured = $_POST['featured'];
+                    $featured = mysqli_real_escape_string($conn, $_POST['featured']);
                 } else {
                     // Setting the default value
                     $featured = "No";
                 }
                 if (isset($_POST['active'])) {
-                    $active = $_POST['active'];
+                    // $active = $_POST['active'];
+                    $active = mysqli_real_escape_string($conn, $_POST['active']);
                 } else {
                     // Setting the default value
                     $active = "No";
