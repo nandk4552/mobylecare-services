@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     // $username = $_POST['username'];
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     // $password = md5($_POST['password']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
 
 
     //2. SQL query to save the data into database

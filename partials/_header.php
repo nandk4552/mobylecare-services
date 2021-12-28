@@ -97,10 +97,10 @@ echo '
 </button>
 </form>
 <div class="mx-2 my-2">
-<button class="btn btn-warning mx-2 y-btn" data-toggle="modal" data-target="#loginModal">
+<button class="btn btn-warning mx-2 y-btn"  data-bs-toggle="offcanvas" data-bs-target="#loginModal" aria-controls="offcanvasRight">
   Login
 </button>
-<button class="btn btn-warning y-btn" data-toggle="modal" data-target="#signupModal">
+<button class="btn btn-warning y-btn" data-bs-toggle="offcanvas" data-bs-target="#signupModal" aria-controls="offcanvasRight">
   SignUp
 </button>
 </div>';
